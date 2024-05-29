@@ -1,0 +1,291 @@
+/* Colors*/
+:root {
+    --myWhite: #FFFFFF ;
+    --mySoftPink : #F2CEF2 ;
+    --mySoftViolet : #9E91B7 ;
+    --myPink : #DF99F2 ;
+    --myViolet: #3D2DA6;
+    --myBlue : #07338C;
+    --myDarkBlue:#021740;
+ }
+
+
+/* SECTION 1 : Take up the challenge */
+/* Grid area */
+.sec1En {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "titre"
+        "texte"
+        "photo";
+    margin-left: 12.5%;
+}
+
+@media screen and (min-width: 700px) {
+    .sec1En {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "photo  titre"
+            "photo  texte";
+        margin-right: 10%;
+    }
+}
+
+
+.sec1En__imgCont {
+    grid-area : photo;
+    align-self: center;
+}
+
+.sec1En__titCont {
+    grid-area : titre;
+    align-self: flex-end;
+}
+
+.sec1En__art {
+    grid-area : texte;
+    justify-self: center;
+    align-self: center;
+}
+
+/* Place elements in to the grid */
+.sec1En__imgCont img {
+    max-width: 100%;
+}
+
+.sec1En__titCont__title {
+    font-family: Beyno;
+    line-height: 50px;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.sec1En__art{
+    padding: 20%;
+    background: url(../Assets/Illustrations_Logo/Enigme/Pantherenigme2Sansbord.png) no-repeat, url(../Assets/Illustrations_Logo/Enigme/Pantherenigme3.png) no-repeat;
+    background-size: 100% 100%, contain;
+    background-position: top, bottom;
+}
+
+
+/* SECTION 2 : Main section and article */
+
+#sec2En__title__label {
+    font-family: beyno;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+#sec2En__title__label span {
+    font-family:Cantarell
+}
+
+#sec2En__title__forTrans {
+    font-family: "Wakanda Forever";
+    font-size: 30px;
+    max-width: 80%;
+    letter-spacing: 3px;
+    line-height: 40px;
+    margin: 50px 0;
+}
+
+.sec2En__art {
+    text-align: center;
+}
+
+.sec2En {
+    display: flex;
+    flex-direction: column;
+    margin: 10vw 10% 10vw 15%;
+}
+
+/* Grid and media query for small screen */
+@media screen and (min-width: 850px) {
+    .sec2En {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+            "title  title art art"
+            "formu  formu art art";
+    }
+
+    .sec2En__formCont {
+        margin-top: 50px;
+        margin-right: 20%;
+    }
+
+    .sec2En__art {
+        justify-self: center;
+        align-self: center;
+    }
+
+    .sec2En__title {
+        grid-area: title;
+    }
+    
+    .sec2En__formCont {
+        grid-area: formu;
+    }
+    .sec2En__art {
+        grid-area: art;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+/* Alphabet translation inline */
+dt, dd {
+    display: inline;
+    font-size: 16px;
+}
+
+dd {
+    font-family: "Wakanda Forever";
+}
+
+/* Place element inside the grid */
+.sec2En__formCont textarea {
+    color: var(--mySoftPink);
+    font-size: 12px;
+    border-color: var(--mySoftPink);
+    background-color: transparent;
+    padding: 15px 15px;
+    height: 50px;
+    border-radius: 50px;
+    width: 100%;
+    margin: 2% 0 10%;
+}
+
+.sec2En__formCont textarea::placeholder {
+    color: var(--mySoftPink);
+}
+
+/* Submit button in form */
+.sec2En__formCont button {
+    /* width: 174px;
+    height: 54px; trop grand */
+    width: 125px;
+    height: 40px;
+    border: none;
+    border-radius: 38px;
+    background-color: var(--mySoftPink);
+    font-weight: bolder;
+    font-size: 12px;
+}
+
+.sec2En__formCont button:hover {
+    filter: drop-shadow(0 0 10px var(--mySoftPink)) ;
+}
+
+.sec2En__formCont__subBtnCont {
+    display: flex;
+    justify-content: center;
+}
+
+/**Back button at the begining and end of the quizz */
+#EnigGoIndex {
+    display: none;
+}
+
+/* Result Popupbox at the and of the quizz*/
+#EnigPopupBox__mainContainer {
+    height: 100% ;
+    width: 100%;
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    color: white;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .EnigPopupBox__mainContainer {
+    height: 100% ;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0%;
+    filter:blur(58px);
+    background : linear-gradient(#3D2DA6ee, #021740ee ) ;
+    display: none;
+    z-index: 2;
+  }
+
+  .EnigPopupBox__insideDiv {
+    height: 70% ;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10%;
+    background: linear-gradient(#9E91B7, #3D2DA600);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 3.45 3.45 #000000;
+    border-radius: 20px;
+    filter:none;
+  }
+
+  .congrat {
+    color: white;
+    font-family: Cantarell;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .resultComment {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .nextQ, #enigGoIndex {
+    width: 174px;
+    max-width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 38px;
+    background-color: var(--mySoftPink);
+    font-weight: bolder;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  #enigGoIndex {
+    display: none;
+  }
+
+  .comingFigCompte {
+    display: none;
+  }
+
+  .comingFigCompte * {
+    margin: 0 5px;
+    font-weight: bold;
+  }
+
+  .comingFigCompte h2 {
+    font-family: Cantarell;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .box-rebours {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .box-rebours div {
+    display: inline;
+    font-size:25px ;
+  }
+
+.sec2En__art{
+    padding: 20%;
+    background: url(../Assets/Illustrations_Logo/Enigme/Pantherenigme2Sansbord.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: top;
+}
